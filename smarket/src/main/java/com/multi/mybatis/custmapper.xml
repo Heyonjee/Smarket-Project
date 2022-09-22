@@ -4,26 +4,26 @@ PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.multi.mapper.CustMapper">
 	
-	<select id="select" parameterType="Integer" resultType="custDTO">
-		SELECT ca.id, cu.name AS cust , i.name AS item, i.imgname AS item, i.price AS item, ca.rdate FROM cart AS ca
-		INNER JOIN cust AS cu ON cu.id=ca.user_id
-		INNER JOIN item AS i ON i.id=ca.item_id
-		WHERE id=#{id}
+	<select id="select" parameterType="String" resultType="custDTO">
+		SELECT c.custid, s.shipid, c.pwd, c.name AS custname, c.email, c.birth, c.tel,  NOW(), c.point, c.withdrawal, s.addr, s.addrdetail
+		  FROM cust c
+		 INNER JOIN ship s ON s.shipid = c.shipid
+		 WHERE custid = #{custid}
 	</select>
-	<select id="selectall" resultType="custDTO">
-		SELECT ca.id, cu.name AS cust , i.name AS item, i.imgname AS item, i.price AS item, ca.rdate FROM cart AS ca
-		INNER JOIN cust AS cu ON cu.id=ca.user_id
-		INNER JOIN item AS i ON i.id=ca.item_id
-		
+	<select id="selectall" resultType="custDTO">	
+		SELECT c.custid, s.shipid, c.pwd, c.name AS custname, c.email, c.birth, c.tel,  NOW(), c.point, c.withdrawal, s.addr, s.addrdetail
+		  FROM cust c
+		 INNER JOIN ship s ON s.shipid = c.shipid
 	</select>
 	<insert id="insert" parameterType="custDTO">
-		INSERT INTO cart VALUES (NULL,#{user_id},#{item_id},#{cnt},NOW())
+		INSERT INTO cust VALUES (#{custid},#{shipid},#{pwd},#{custname},#{email},#{birth},#{tel},NOW(),#{point},#{withdrawal})
 	</insert>
 	<update id="update" parameterType="custDTO">
-		UPDATE cart SET cnt=#{cnt}, rdate=NOW() WHERE id=#{id}
+		UPDATE cust SET shipid = #{shipid}, point = #{point} WHERE custid = #{custid}
 	</update>
-	<delete id="delete" parameterType="Integer">
-		DELETE FROM cart WHERE id=#{id}
+	<delete id="delete" parameterType="String">
+		DELETE FROM cust WHERE custid = #{custid};
 	</delete>
 	
 </mapper>
+

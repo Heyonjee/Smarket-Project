@@ -14,13 +14,18 @@ import lombok.ToString;
 @Setter
 @ToString
 public class CustDTO {
-	private String custname;
 	private String custid;
-	private Date rdate;
-	private boolean withdrawal;
+	private Integer shipid;
+	private String pwd;
+	private String custname;
 	private String email;
-	private String addr;
-	private String birth;
+	private Integer birth;
 	private String tel;
 	private Integer point;
+	private Date rdate;
+	private String withdrawal;
+	
+	private String addr;
+	private String addrdetail;
 }
+

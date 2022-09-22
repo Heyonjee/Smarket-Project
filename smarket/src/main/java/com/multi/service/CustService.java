@@ -3,11 +3,13 @@ package com.multi.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.multi.dto.CustDTO;
 import com.multi.frame.MyService;
 import com.multi.mapper.CustMapper;
 
+@Service
 public class CustService implements MyService<String, CustDTO>{
 
 	@Autowired
@@ -15,6 +17,7 @@ public class CustService implements MyService<String, CustDTO>{
 	
 	@Override
 	public void register(CustDTO v) throws Exception {
+		System.out.println("in : " + v);
 		mapper.insert(v);
 	}
 
@@ -30,6 +33,7 @@ public class CustService implements MyService<String, CustDTO>{
 
 	@Override
 	public CustDTO get(String k) throws Exception {
+		System.out.println("in : " + k);
 		return mapper.select(k);
 	}
 
