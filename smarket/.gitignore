@@ -163,4 +163,4 @@ $RECYCLE.BIN/
 # End of https://www.toptal.com/developers/gitignore/api/macos,windows,eclipse
 
 # application.properties
-application.properties
+/application.properties
