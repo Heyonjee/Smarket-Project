@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.multi.mapper.CustMapper">
+	
+	<select id="select" parameterType="Integer" resultType="custDTO">
+		SELECT ca.id, cu.name AS cust , i.name AS item, i.imgname AS item, i.price AS item, ca.rdate FROM cart AS ca
+		INNER JOIN cust AS cu ON cu.id=ca.user_id
+		INNER JOIN item AS i ON i.id=ca.item_id
+		WHERE id=#{id}
+	</select>
+	<select id="selectall" resultType="custDTO">
+		SELECT ca.id, cu.name AS cust , i.name AS item, i.imgname AS item, i.price AS item, ca.rdate FROM cart AS ca
+		INNER JOIN cust AS cu ON cu.id=ca.user_id
+		INNER JOIN item AS i ON i.id=ca.item_id
+		
+	</select>
+	<insert id="insert" parameterType="custDTO">
+		INSERT INTO cart VALUES (NULL,#{user_id},#{item_id},#{cnt},NOW())
+	</insert>
+	<update id="update" parameterType="custDTO">
+		UPDATE cart SET cnt=#{cnt}, rdate=NOW() WHERE id=#{id}
+	</update>
+	<delete id="delete" parameterType="Integer">
+		DELETE FROM cart WHERE id=#{id}
+	</delete>
+	
+</mapper>
