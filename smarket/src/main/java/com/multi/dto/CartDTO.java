@@ -17,4 +17,5 @@ public class CartDTO {
 	private int cartid;
 	private int qty;
 	private Date adddate;
+	
 }
