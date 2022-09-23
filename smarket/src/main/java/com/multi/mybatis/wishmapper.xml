@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.multi.mapper.WishMapper">
+	
+	<select id="select" parameterType="Integer" resultType="wishDTO">
+		SELECT  w.wishid, w.custid, w.productno, cu.name AS custname, p.productname FROM wishlist AS w
+		INNER JOIN cust AS cu ON cu.custid=w.custid
+		INNER JOIN product AS p ON p.productno=w.productno
+		WHERE w.wishid=#{wishid}
+	</select>
+	<select id="selectall" resultType="wishDTO">
+		SELECT * FROM wishlist
+	</select>
+	<insert id="insert" parameterType="wishDTO">
+		INSERT INTO wishlist VALUES (NULL,#{custid},#{productno})
+	</insert>
+	<update id="update" parameterType="wishDTO">
+		UPDATE wishlist SET productno=#{productno} WHERE wishid=#{wishid}
+	</update>
+	<delete id="delete" parameterType="Integer">
+		DELETE  FROM wishlist WHERE wishid=#{wishid}
+	</delete>
+	
+</mapper>
