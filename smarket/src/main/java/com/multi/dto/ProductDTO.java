@@ -12,10 +12,13 @@ import lombok.ToString;
 @Getter
 @ToString
 public class ProductDTO {
-	private int productno;
+	private Integer productno;
+	private Integer cateid;
+	private String name;
 	private String productname;
-	private int size;
-	private int productprice;
-	private int productquantity;
+	private Integer size;
+	private Integer productprice;
+	private Integer productquantity;
+	private String reviewcontent;
 
 }

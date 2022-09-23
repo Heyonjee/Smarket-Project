@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.multi.mapper.ProductMapper">
+	
+	<select id="select" parameterType="Integer" resultType="productDTO">
+		SELECT p.productno,cate.name,p.productname, p.size, p.productprice, p.productquantity,re.reviewcontent FROM product AS p
+		LEFT OUTER JOIN category AS cate ON cate.cateid=p.cateid
+		LEFT OUTER JOIN review AS re ON re.productno=p.productno
+		WHERE p.productno = #{productno}
+		ORDER BY productno
+	</select>
+	<select id="selectall" resultType="productDTO">
+		SELECT p.productno,cate.name,p.productname, p.size, p.productprice, p.productquantity,re.reviewcontent FROM product AS p
+		LEFT OUTER JOIN category AS cate ON cate.cateid=p.cateid
+		LEFT OUTER JOIN review AS re ON re.productno=p.productno
+		ORDER BY productno
+	</select>
+	<insert id="insert" parameterType="productDTO">
+		INSERT INTO product VALUE (NULL, #{cateid}, #{productname} ,#{size}, #{productprice}, #{productquantity})
+	</insert>
+	<update id="update" parameterType="productDTO">
+		UPDATE product SET size=#{size}, productprice=#{productprice}  WHERE productno=#{productno}
+	</update>
+	<delete id="delete" parameterType="Integer">
+		DELETE FROM product WHERE productno=#{productno}
+	</delete>
+	
+</mapper>
