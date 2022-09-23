@@ -23,6 +23,7 @@ public class CustInsert {
 			CustDTO cust = new CustDTO("hytest2",1,"testpwd01","hy","hy@test", 220101,"123456",10000,null,"N",null,null);
 			System.out.println(cust);
 			service.register(cust);
+			System.out.println("test");
 			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

@@ -15,6 +15,7 @@ public class CustDelete {
 	void contextLoads() {
 		try {
 			service.remove("hytest");
+			System.out.println("test");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			System.out.println("객체가 생성되지 않았습니다.");

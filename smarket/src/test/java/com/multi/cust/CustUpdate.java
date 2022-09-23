@@ -16,7 +16,8 @@ public class CustUpdate {
 	void contextLoads() {
 		try {
 			CustDTO cust = new CustDTO("hytest2",3,null,null,null, null,null,17000,null,null,null,null);
-			service.modify(cust);			
+			service.modify(cust);		
+			System.out.println("test");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			System.out.println("객체가 생성되지 않았습니다.");

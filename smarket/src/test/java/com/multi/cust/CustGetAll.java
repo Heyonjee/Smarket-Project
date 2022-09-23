@@ -22,6 +22,7 @@ public class CustGetAll {
 			for(CustDTO c : list) {
 				System.out.println(c);
 			}
+			System.out.println("test");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
