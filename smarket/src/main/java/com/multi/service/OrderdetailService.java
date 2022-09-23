@@ -40,4 +40,6 @@ public class OrderdetailService implements MyService<Integer, OrderdetailDTO>{
 		return mapper.selectall();
 	}
 
+	
+	
 }
