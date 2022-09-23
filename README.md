@@ -13,7 +13,7 @@
 
 ## 3. 프로젝트 구성원 및 역할
 |이름|역할|
-|:---:|:---:|
+|:---:|---|
 |김희연|CustDTO, ReviewDTO 및 CRUD 구현|
 |박성훈|ProductDTO, Cart DTO 및 CRUD 구현|
 |이현지|OrderlistDTO, OrderdetailDTO 및 CRUD 구현|
@@ -29,5 +29,7 @@
 - 위시리스트 조회 기능
 
 ## 5. 프로젝트 개발 환경 및 수행 도구
+<img width="801" alt="스크린샷 2022-09-23 오후 5 18 28" src="https://user-images.githubusercontent.com/86956783/191921270-7fc4fd93-8c68-4aaf-a6ed-cbf87f3ab95b.png">
 
 ## 6. 데이터베이스 설계
+![smarket_db](https://user-images.githubusercontent.com/86956783/191921388-e9115169-476f-44cc-b112-14349a20377b.png)
