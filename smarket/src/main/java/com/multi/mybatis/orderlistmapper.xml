@@ -5,19 +5,21 @@ PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
 <mapper namespace="com.multi.mapper.OrderlistMapper">
 	
 	<select id="select" parameterType="Integer" resultType="orderlistDTO">
-		SELECT * FROM orderlist WHERE id=#{id}
+		SELECT ol.orderno, ol.custid, ol.orderstatus, ol.orderdate, ol.totalprice, cu.name AS custname FROM orderlist AS ol
+		INNER JOIN cust AS cu ON cu.custid=ol.custid
+		WHERE ol.orderno=#{orderno}
 	</select>
 	<select id="selectall" resultType="orderlistDTO">
 		SELECT * FROM orderlist
 	</select>
 	<insert id="insert" parameterType="orderlistDTO">
-		INSERT INTO orderlist VALUES (NULL,#{custid},#{shipid},#{orderstatus},NOW(),#{totalprice})
+		INSERT INTO orderlist VALUES (NULL,#{shipid},#{custid},#{orderstatus},NOW(),#{totalprice})
 	</insert>
 	<update id="update" parameterType="orderlistDTO">
-		UPDATE orderlist SET orderstatus=#{orderstaus},orderdate=NOW(),totalprice=#{totalprice} WHERE id=#{id}
+		UPDATE orderlist SET orderstatus=#{orderstatus},orderdate=NOW(),totalprice=#{totalprice} WHERE orderno=#{orderno}
 	</update>
 	<delete id="delete" parameterType="Integer">
-		DELETE FROM orderlist WHERE id=#{id}
+		DELETE  FROM orderlist WHERE orderno=#{orderno}
 	</delete>
 	
 </mapper>

@@ -5,19 +5,22 @@ PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
 <mapper namespace="com.multi.mapper.OrderdetailMapper">
 	
 	<select id="select" parameterType="Integer" resultType="orderdetailDTO">
-		SELECT * FROM orderdetail WHERE id=#{id}
+		SELECT od.orderdetailno, cu.custid AS custid, cu.name AS custname, od.ordersize, od.orderitem, od.price, od.delivery, od.productamount  FROM orderdetail AS od
+		INNER JOIN orderlist AS ol ON ol.orderno=od.orderno
+		INNER JOIN cust AS cu ON cu.custid=ol.custid
+		WHERE od.orderdetailno=#{orderdetailno}
 	</select>
 	<select id="selectall" resultType="orderdetailDTO">
 		SELECT * FROM orderdetail
 	</select>
 	<insert id="insert" parameterType="orderdetailDTO">
-		INSERT INTO orderdetail VALUES (NULL,#{orderno},#{productno},#{ordersize},#{orderitem},#{price},#{productamount})
+		INSERT INTO orderdetail VALUES (NULL,#{orderno},#{productno},#{ordersize},#{orderitem},#{price},#{delivery},#{productamount})
 	</insert>
 	<update id="update" parameterType="orderdetailDTO">
-		UPDATE orderdetail SET ordersize=#{ordersize},orderitem=#{orderitem},price=#{price}, productamount=#{productamount} WHERE id=#{id}
+		UPDATE orderdetail SET ordersize=#{ordersize},orderitem=#{orderitem},price=#{price}, productamount=#{productamount} WHERE orderdetailno=#{orderdetailno}
 	</update>
 	<delete id="delete" parameterType="Integer">
-		DELETE FROM orderdetail WHERE id=#{id}
+		DELETE FROM orderdetail WHERE orderdetailno=#{orderdetailno}
 	</delete>
 	
 </mapper>

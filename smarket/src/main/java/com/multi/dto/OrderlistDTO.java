@@ -15,8 +15,8 @@ import lombok.ToString;
 @ToString
 public class OrderlistDTO {
 	private int orderno;
-	private String custid;
 	private int shipid;
+	private String custid;
 	private String orderstatus;
 	private Date orderdate;
 	private int totalprice;
