@@ -23,4 +23,5 @@ PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
 		DELETE FROM orderdetail WHERE orderdetailno=#{orderdetailno}
 	</delete>
 	
+	
 </mapper>
