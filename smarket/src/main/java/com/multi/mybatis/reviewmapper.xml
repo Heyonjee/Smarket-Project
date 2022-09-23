@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.multi.mapper.ReviewMapper">
+	
+	<select id="select" parameterType="Integer" resultType="reviewDTO">
+		SELECT re.reviewno, ca.name AS catename, pd.productname, cu.name AS custname, re.reviewcontent, re.likecount, re.reviewdate
+		  FROM review re
+		 INNER JOIN cust cu ON cu.custid = re.custid
+		 INNER JOIN product pd ON pd.productno = re.productno
+		 INNER JOIN category ca ON ca.cateid = pd.cateid
+		 WHERE reviewno = #{reviewno}
+	</select>
+	<select id="selectall" resultType="reviewDTO">	
+		SELECT re.reviewno, ca.name AS catename, pd.productname, cu.name AS custname, re.reviewcontent, re.likecount, re.reviewdate
+		  FROM review re
+		 INNER JOIN cust cu ON cu.custid = re.custid
+		 INNER JOIN product pd ON pd.productno = re.productno
+		 INNER JOIN category ca ON ca.cateid = pd.cateid
+		 
+	</select>
+	<insert id="insert" parameterType="reviewDTO">
+		INSERT INTO review VALUES (NULL, #{custid}, #{productno},#{reviewcontent},#{likecount},NOW());
+	</insert>
+	<update id="update" parameterType="reviewDTO">
+		UPDATE review SET reviewcontent = #{reviewcontent}, likecount = #{likecount} WHERE reviewno = #{reviewno}
+	</update>
+	<delete id="delete" parameterType="Integer">
+		DELETE FROM review WHERE reviewno = #{reviewno};
+	</delete>
+	
+</mapper>
+
