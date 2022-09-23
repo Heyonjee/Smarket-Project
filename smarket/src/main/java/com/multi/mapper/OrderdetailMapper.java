@@ -10,4 +10,5 @@ import com.multi.frame.MyMapper;
 @Mapper
 public interface OrderdetailMapper extends MyMapper<Integer, OrderdetailDTO>{
 
+	
 }
