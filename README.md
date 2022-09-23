@@ -34,7 +34,7 @@
 ## 6. 프로젝트 수행 도구
 |언어|개발도구|Database|협업도구|Framework|
 |:---:|:---:|:---:|:---:|:---:|
-|Java, SQL|Eclipse|MySQL|Github, Zoom, Google Docs, ERD Cloud|Spring Boot, MyBatis|
+|Java<br>SQL|Eclipse|MySQL|Github<br>Zoom<br>Google Docs<br>ERD Cloud|Spring Boot<br>MyBatis|
 
 ## 7. 데이터베이스 설계
 ![smarket_db](https://user-images.githubusercontent.com/86956783/191921388-e9115169-476f-44cc-b112-14349a20377b.png)
