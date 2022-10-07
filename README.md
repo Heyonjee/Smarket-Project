@@ -46,3 +46,7 @@
 |박성훈|UnsatisfiedDependencyException 발생|mapper.xml 파일의 mapper namespace 경로를 수정하여 해결하였습니다.|
 |이현지|query문 작성시 Database의 column명과 DTO의 column명 일치하지 않음|DTO의 column명과 일치하는 alias를 적용하여 해결하였습니다.|
 
+## 9. 프로젝트 회고
+Github과 Eclipse를 연결하여 협업하는 것이 처음이라 pull, push하는 과정도 쉽지 않았지만 여러 시도를 거치며 프로젝트를 마무리하는 경험은 하나의 협업방법을 숙지하는데 도움이 되었다. 다음번 프로젝트에서는 시작할 때 어려움을 겪지 않을 수 있을 것이다.
+
+
